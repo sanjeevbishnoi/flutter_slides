@@ -1,0 +1,26 @@
+[
+  {
+    "fonts": [
+      {
+        "asset": "fonts/MaterialIcons-Regular.ttf"
+      }
+    ],
+    "family": "MaterialIcons"
+  },
+  {
+    "fonts": [
+      {
+        "asset": "fonts/NotoSansJP-Regular.otf"
+      }
+    ],
+    "family": "NotoSansRegular"
+  },
+  {
+    "fonts": [
+      {
+        "asset": "fonts/Roboto-Light.ttf"
+      }
+    ],
+    "family": "RobotoLight"
+  }
+]
