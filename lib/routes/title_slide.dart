@@ -21,10 +21,9 @@ class _TitleSlideState extends State<TitleSlide> {
       children: <Widget>[
         StackBackgroundImage(
           opacity: .7,
-          image:
-              'https://images.unsplash.com/photo-1553949345-eb786bb3f7ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
-          caption: 'Photo by Pawl Czerwinski on UnSplash',
-          link: 'https://unsplash.com/photos/yn97LNy0bao',
+          image: slidecontent.titleSlide['backgroundImage'],
+          caption: slidecontent.titleSlide['backgroundImageCaption'],
+          link: slidecontent.titleSlide['backgroundImageCaptionLink'],
         ),
         Container(
           child: GestureDetector(
@@ -51,7 +50,7 @@ class _TitleSlideState extends State<TitleSlide> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 100),
+                  SizedBox(height: MediaQuery.of(context).size.height * .1),
                   Icon(Icons.arrow_forward),
                 ],
               ),
