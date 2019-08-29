@@ -20,3 +20,5 @@ const kSlideTextStyle = TextStyle(
   fontSize: 50,
   fontFamily: kFontFamily,
 );
+
+const kTitleSlideHeroKey = 'titleSlideHero';

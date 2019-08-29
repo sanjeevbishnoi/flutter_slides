@@ -8,33 +8,22 @@ typedef void AppearanceCallback(SlideAppearance val1);
 class AnimatedSlideArea extends StatefulWidget {
   const AnimatedSlideArea({
     Key key,
-    @required containerPositionLeft,
-    @required containerPositionTop,
+    @required this.containerPositionLeft,
+    @required this.containerPositionTop,
     @required this.parentController,
-    @required startColor,
-    @required endColor,
+    @required this.startColor,
+    @required this.endColor,
     @required this.appearanceCallback,
-    @required appearance,
-    title,
-  })  : _containerPositionLeft = containerPositionLeft,
-        _containerPositionTop = containerPositionTop,
-        _appearance = appearance,
-        _title = title,
-        _startColor = startColor,
-        _endColor = endColor,
-        super(key: key);
+    @required this.appearance,
+    this.title,
+  }) : super(key: key);
 
-  final double _containerPositionLeft, _containerPositionTop;
-  final SlideAppearance _appearance;
+  final double containerPositionLeft, containerPositionTop;
+  final SlideAppearance appearance;
   final AnimationController parentController;
   final AppearanceCallback appearanceCallback;
-  final String _title;
-  final Color _startColor, _endColor;
-
-  double get containerPositionLeft => _containerPositionLeft;
-  double get containerPositionTop => _containerPositionTop;
-  SlideAppearance get appearance => _appearance;
-  String get title => _title;
+  final String title;
+  final Color startColor, endColor;
 
   @override
   _AnimatedSlideAreaState createState() => _AnimatedSlideAreaState();
@@ -85,7 +74,7 @@ class _AnimatedSlideAreaState extends State<AnimatedSlideArea>
       ),
     );
     containerPositionTopAnimation =
-        Tween<double>(begin: widget.containerPositionTop, end: .18).animate(
+        Tween<double>(begin: widget.containerPositionTop, end: .15).animate(
       CurvedAnimation(
         parent: controller,
         curve: Interval(.5, 1, curve: Curves.easeInOut),
@@ -122,7 +111,7 @@ class _AnimatedSlideAreaState extends State<AnimatedSlideArea>
   Widget build(BuildContext context) {
     double mediaWidth = MediaQuery.of(context).size.width;
     double mediaHeight = MediaQuery.of(context).size.height;
-    colorTween = ColorTween(begin: widget._startColor, end: widget._endColor)
+    colorTween = ColorTween(begin: widget.startColor, end: widget.endColor)
         .animate(controller);
 
     return Positioned(
@@ -158,7 +147,8 @@ class _AnimatedSlideAreaState extends State<AnimatedSlideArea>
                 borderRadius: BorderRadius.circular(40),
                 boxShadow: [
                   BoxShadow(
-                    color: Theme.of(context).primaryColorDark,
+                    //color: Theme.of(context).primaryColorDark,
+                    color: Colors.black,
                     offset: Offset(2.0, 2.0),
                   )
                 ],

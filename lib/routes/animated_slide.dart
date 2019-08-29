@@ -1,15 +1,18 @@
 import 'package:flutter_web/material.dart';
-import 'package:tk.slides/widgets/stack_background_image.dart';
+import 'package:tk.slides/widgets/image_caption.dart';
+import 'package:tk.slides/widgets/stack_background.dart';
 import 'package:tk.slides/widgets/animated_slide_area.dart';
-import 'package:tk.slides/widgets/theme_popup_button.dart';
+import 'package:tk.slides/widgets/color_theme_popup.dart';
 import 'package:tk.slides/widgets/slide_title.dart';
 import 'package:tk.slides/slide_content.dart' as slidecontent;
-import 'package:tk.slides/constants.dart' as constants;
-/*import 'package:tk.slides/models/base_bloc_model.dart';*/
-import 'package:tk.slides/models/ui_state.dart';
-import 'package:provider/provider.dart';
 
 class AnimatedSlide extends StatefulWidget {
+  const AnimatedSlide({
+    Key key,
+    @required this.onClickAdvance,
+  }) : super(key: key);
+
+  final Function onClickAdvance;
   static const String routeName = 'slide';
 
   @override
@@ -17,11 +20,11 @@ class AnimatedSlide extends StatefulWidget {
 }
 
 class _TitleRouteState extends State<AnimatedSlide>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   AnimationController controller;
+
   Animation stackTransformScaleAnimation, backgroundOpacityAnimation;
   Duration animationDuration = Duration(milliseconds: 1500);
-  double backgroundOpacityStart, backgroundOpacityEnd;
 
   SlideAppearance slide1Appearance = SlideAppearance.normal;
   SlideAppearance slide2Appearance = SlideAppearance.normal;
@@ -35,15 +38,19 @@ class _TitleRouteState extends State<AnimatedSlide>
       duration: animationDuration,
     );
 
-    stackTransformScaleAnimation = Tween<double>(begin: 1.4, end: 1).animate(
+    stackTransformScaleAnimation = Tween<double>(begin: 1.1, end: 1).animate(
       CurvedAnimation(
         parent: controller,
         curve: Interval(.5, 1, curve: Curves.easeInOut),
       ),
     );
 
-    backgroundOpacityAnimation =
-        Tween<double>(begin: .7, end: .8).animate(controller);
+    backgroundOpacityAnimation = Tween<double>(begin: .6, end: .8).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Interval(.5, 1, curve: Curves.easeInOut),
+      ),
+    );
 
     controller.addListener(() {
       setState(() {});
@@ -58,40 +65,21 @@ class _TitleRouteState extends State<AnimatedSlide>
 
   @override
   Widget build(BuildContext context) {
-    //backgroundOpacityAnimation =
-    //    Tween<double>(begin: .4, end: .8).animate(controller);
-
-    /*return StreamBuilder<UIState>(
-      stream: Provider.of<BaseBlocModel<UIState>>(context).stream,
-      initialData: constants.kInitialColorTheme,
-      builder: (context, snapshot) {
-        if (snapshot.data.colorScheme == constants.AppColorScheme.kThemeLight) {
-          backgroundOpacityStart = 0;
-          backgroundOpacityEnd = .3;
-        } else {
-          backgroundOpacityStart = .7;
-          backgroundOpacityEnd = .9;
-        }
-
-        backgroundOpacityAnimation = Tween<double>(
-                begin: backgroundOpacityStart, end: backgroundOpacityEnd)
-            .animate(controller);*/
+    double mediaWidth = MediaQuery.of(context).size.width;
+    double mediaHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          StackBackgroundImage(
+          StackBackground(
             opacity: backgroundOpacityAnimation.value,
-            image:
-                'https://images.unsplash.com/photo-1555420087-62ca236e0256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1253&q=80',
-            //scale: stackTransformScaleAnimation.value,
-            caption: 'Photo by Steve Johnson on UnSplash',
-            link: 'https://unsplash.com/photos/OPyoU4zCwWI',
+            image: slidecontent.animatedSlide['backgroundImage'],
+            scale: stackTransformScaleAnimation.value,
           ),
-          SlideTitleWidget(titleText: slidecontent.titleSlide['title']),
+          SlideTitle(titleText: slidecontent.animatedSlide['title']),
           AnimatedSlideArea(
-            title: slidecontent.animatedSlide[0][0],
-            containerPositionLeft: .6,
+            title: '1',
+            containerPositionLeft: .2,
             containerPositionTop: .18,
             startColor: Theme.of(context).primaryColor,
             endColor: Theme.of(context).primaryColorLight,
@@ -111,9 +99,9 @@ class _TitleRouteState extends State<AnimatedSlide>
             parentController: controller,
           ),
           AnimatedSlideArea(
-            title: slidecontent.animatedSlide[1][0],
-            containerPositionLeft: .2,
-            containerPositionTop: .45,
+            title: '2',
+            containerPositionLeft: .4,
+            containerPositionTop: .43,
             startColor: Theme.of(context).primaryColor,
             endColor: Theme.of(context).primaryColorLight,
             appearance: slide2Appearance,
@@ -132,9 +120,9 @@ class _TitleRouteState extends State<AnimatedSlide>
             parentController: controller,
           ),
           AnimatedSlideArea(
-            title: slidecontent.animatedSlide[2][0],
+            title: '3',
             containerPositionLeft: .6,
-            containerPositionTop: .72,
+            containerPositionTop: .68,
             startColor: Theme.of(context).primaryColor,
             endColor: Theme.of(context).primaryColorLight,
             appearance: slide3Appearance,
@@ -154,11 +142,23 @@ class _TitleRouteState extends State<AnimatedSlide>
             },
             parentController: controller,
           ),
-          ThemePopupButton(),
+          ImageCaption(
+            caption: slidecontent.animatedSlide['backgroundImageCaption'],
+            link: slidecontent.animatedSlide['backgroundImageCaptionLink'],
+          ),
+          Positioned(
+            top: mediaHeight * .94,
+            left: mediaWidth * .9,
+            child: GestureDetector(
+              onTap: () {
+                widget.onClickAdvance();
+              },
+              child: Icon(Icons.arrow_forward),
+            ),
+          ),
+          ColorThemePopup(),
         ],
       ),
     );
-    //},
-    //);
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter_web/material.dart';
 import 'package:tk.slides/constants.dart' as constants;
 import 'package:tk.slides/slide_content.dart' as slidecontent;
-import 'package:tk.slides/widgets/theme_popup_button.dart';
-import 'package:tk.slides/routes/animated_slide.dart';
-import 'package:tk.slides/widgets/stack_background_image.dart';
+import 'package:tk.slides/widgets/color_theme_popup.dart';
+import 'package:tk.slides/routes/slide_container.dart';
+import 'package:tk.slides/widgets/stack_background.dart';
 
 class TitleSlide extends StatefulWidget {
   TitleSlide({Key key}) : super(key: key);
@@ -19,7 +19,7 @@ class _TitleSlideState extends State<TitleSlide> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        StackBackgroundImage(
+        StackBackground(
           opacity: .7,
           image: slidecontent.titleSlide['backgroundImage'],
           caption: slidecontent.titleSlide['backgroundImageCaption'],
@@ -34,19 +34,22 @@ class _TitleSlideState extends State<TitleSlide> {
                   context,
                   PageRouteBuilder(
                       transitionDuration: Duration(milliseconds: 1000),
-                      pageBuilder: (context, __, ___) => AnimatedSlide()));
+                      pageBuilder: (context, __, ___) => SlideContainer()));
             },
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Hero(
-                    tag: slidecontent.titleSlide['title'],
+                    tag: constants.kTitleSlideHeroKey,
                     child: Material(
                       color: Colors.transparent,
-                      child: Text(
-                        slidecontent.titleSlide['title'],
-                        style: constants.kTitleTextStyle,
+                      child: Container(
+                        width: 400,
+                        child: Text(
+                          slidecontent.titleSlide['title'],
+                          style: constants.kTitleTextStyle,
+                        ),
                       ),
                     ),
                   ),
@@ -57,7 +60,7 @@ class _TitleSlideState extends State<TitleSlide> {
             ),
           ),
         ),
-        ThemePopupButton(),
+        ColorThemePopup(),
       ],
     );
   }

@@ -6,8 +6,23 @@ const titleSlide = {
   'backgroundImageCaptionLink': 'https://unsplash.com/photos/yn97LNy0bao',
 };
 
-const animatedSlide = [
+const animatedSlide = {
+  'title': 'Animated Slide',
+  'backgroundImage':
+      'https://images.unsplash.com/photo-1555420087-62ca236e0256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1253&q=80',
+  'backgroundImageCaption': 'Photo by Steve Johnson on UnSplash',
+  'backgroundImageCaptionLink': 'https://unsplash.com/photos/OPyoU4zCwWI',
+};
+
+/*const animatedSlide = [
   [
+    {
+      'title': 'Animated Slide',
+      'backgroundImage':
+          'https://images.unsplash.com/photo-1555420087-62ca236e0256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1253&q=80',
+      'backgroundImageCaption': 'Photo by Steve Johnson on UnSplash',
+      'backgroundImageCaptionLink': 'https://unsplash.com/photos/OPyoU4zCwWI',
+    },
     'Topic 1',
     'detail 1',
     'detail 2',
@@ -26,3 +41,4 @@ const animatedSlide = [
     'detail 3',
   ]
 ];
+*/

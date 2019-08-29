@@ -4,12 +4,12 @@ import 'package:tk.slides/constants.dart' as constants;
 import 'package:tk.slides/models/ui_state.dart';
 import 'package:provider/provider.dart';
 
-class ThemePopupButton extends StatefulWidget {
+class ColorThemePopup extends StatefulWidget {
   @override
-  _ThemePopupButtonState createState() => _ThemePopupButtonState();
+  _ColorThemePopupState createState() => _ColorThemePopupState();
 }
 
-class _ThemePopupButtonState extends State<ThemePopupButton> {
+class _ColorThemePopupState extends State<ColorThemePopup> {
   @override
   Widget build(BuildContext context) {
     /*final BaseBlocModel<UIState> uiStateBloc =
