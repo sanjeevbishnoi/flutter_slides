@@ -16,10 +16,10 @@ class AnimatedSlide extends StatefulWidget {
   static const String routeName = 'slide';
 
   @override
-  _TitleRouteState createState() => _TitleRouteState();
+  _AnimatedSlideState createState() => _AnimatedSlideState();
 }
 
-class _TitleRouteState extends State<AnimatedSlide>
+class _AnimatedSlideState extends State<AnimatedSlide>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
 

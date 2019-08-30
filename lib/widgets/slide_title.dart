@@ -22,6 +22,7 @@ class SlideTitle extends StatelessWidget {
         tag: constants.kTitleSlideHeroKey,
         child: Container(
           height: 100,
+          width: 400,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,

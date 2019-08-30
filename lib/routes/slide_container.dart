@@ -1,5 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'package:tk.slides/routes/animated_slide.dart';
+import 'package:tk.slides/routes/text_slide.dart';
+import 'package:tk.slides/routes/image_slide.dart';
 
 class SlideContainer extends StatefulWidget {
   static const String routeName = 'slide';
@@ -42,13 +44,13 @@ class _TitleRouteState extends State<SlideContainer> {
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           AnimatedSlide(onClickAdvance: advancePageView),
-          PageView(
+          /*PageView(
             scrollDirection: Axis.vertical,
-            children: <Widget>[
-              Text("Another Slide v"),
-              Text("Another Slide - The End"),
-            ],
-          )
+            children: <Widget>[*/
+          TextSlide(onClickAdvance: advancePageView),
+          ImageSlide(onClickAdvance: advancePageView),
+          //],
+          // )
         ],
       ),
     );

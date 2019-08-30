@@ -9,9 +9,9 @@ const titleSlide = {
 const animatedSlide = {
   'title': 'Animated Slide',
   'backgroundImage':
-      'https://images.unsplash.com/photo-1555420087-62ca236e0256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1253&q=80',
-  'backgroundImageCaption': 'Photo by Steve Johnson on UnSplash',
-  'backgroundImageCaptionLink': 'https://unsplash.com/photos/OPyoU4zCwWI',
+      'https://images.unsplash.com/photo-1558932130-308a12148740?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop',
+  'backgroundImageCaption': 'Photo by Meagan Carsience on Unsplash',
+  'backgroundImageCaptionLink': 'https://unsplash.com/photos/TpG2TBiclik',
 };
 
 /*const animatedSlide = [
