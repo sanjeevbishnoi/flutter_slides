@@ -11,13 +11,18 @@ const Color kDarkPrimaryColor = null;
 
 const String kFontFamily = 'NotoSansRegular';
 
-const kTitleTextStyle = TextStyle(
+const kLargeTextStyle = TextStyle(
   fontSize: 80,
   fontFamily: kFontFamily,
 );
 
-const kSlideTextStyle = TextStyle(
+const kMediumTextStyle = TextStyle(
   fontSize: 50,
+  fontFamily: kFontFamily,
+);
+
+const kSmallTextStyle = TextStyle(
+  fontSize: 30,
   fontFamily: kFontFamily,
 );
 

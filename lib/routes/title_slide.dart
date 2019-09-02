@@ -17,6 +17,8 @@ class TitleSlide extends StatefulWidget {
 class _TitleSlideState extends State<TitleSlide> {
   @override
   Widget build(BuildContext context) {
+    double mediaWidth = MediaQuery.of(context).size.width;
+    double mediaHeight = MediaQuery.of(context).size.height;
     return Stack(
       children: <Widget>[
         StackBackground(
@@ -48,15 +50,49 @@ class _TitleSlideState extends State<TitleSlide> {
                         width: 400,
                         child: Text(
                           slidecontent.titleSlide['title'],
-                          style: constants.kTitleTextStyle,
+                          style: constants.kLargeTextStyle,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * .1),
+                  SizedBox(height: MediaQuery.of(context).size.height * .05),
+                  Text(
+                    slidecontent.titleSlide['subTitle'],
+                    style: constants.kMediumTextStyle,
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * .05),
                   Icon(Icons.arrow_forward),
                 ],
               ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: mediaHeight * .8,
+          child: Container(
+            width: mediaWidth,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        slidecontent.titleSlide['author'],
+                        style: constants.kSmallTextStyle,
+                      ),
+                      Text(
+                        slidecontent.titleSlide['subAuthor'],
+                        style: constants.kSmallTextStyle,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: mediaWidth * .05,
+                ),
+              ],
             ),
           ),
         ),

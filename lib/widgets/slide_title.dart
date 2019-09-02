@@ -38,7 +38,7 @@ class SlideTitle extends StatelessWidget {
                 color: Colors.transparent,
                 child: Text(
                   titleText,
-                  style: constants.kSlideTextStyle,
+                  style: constants.kMediumTextStyle,
                 ),
               ),
             ],

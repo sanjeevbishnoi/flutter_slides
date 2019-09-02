@@ -1,5 +1,8 @@
 const titleSlide = {
   'title': 'Title Slide',
+  'subTitle': 'A subtitle for the presentation',
+  'author': 'The Author\'s Name',
+  'subAuthor': 'Author Contact Info',
   'backgroundImage':
       'https://images.unsplash.com/photo-1553949345-eb786bb3f7ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
   'backgroundImageCaption': 'Photo by Pawl Czerwinski on UnSplash',
