@@ -12,17 +12,17 @@ const Color kDarkPrimaryColor = null;
 const String kFontFamily = 'NotoSansRegular';
 
 const kLargeTextStyle = TextStyle(
-  fontSize: 80,
+  fontSize: 70,
   fontFamily: kFontFamily,
 );
 
 const kMediumTextStyle = TextStyle(
-  fontSize: 50,
+  fontSize: 40,
   fontFamily: kFontFamily,
 );
 
 const kSmallTextStyle = TextStyle(
-  fontSize: 30,
+  fontSize: 25,
   fontFamily: kFontFamily,
 );
 

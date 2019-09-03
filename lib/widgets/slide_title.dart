@@ -4,11 +4,11 @@ import 'package:tk.slides/constants.dart' as constants;
 class SlideTitle extends StatelessWidget {
   const SlideTitle({
     Key key,
-    @required titleText,
-  })  : this.titleText = titleText,
-        super(key: key);
+    @required this.titleText,
+    //@required this.backButtonCallback,
+  }) : super(key: key);
 
-  final titleText;
+  final titleText; //, backButtonCallback;
 
   @override
   Widget build(BuildContext context) {
@@ -21,27 +21,25 @@ class SlideTitle extends StatelessWidget {
       child: Hero(
         tag: constants.kTitleSlideHeroKey,
         child: Container(
-          height: 100,
-          width: 400,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(Icons.arrow_back),
-              ),
-              SizedBox(width: 10),
-              Material(
-                color: Colors.transparent,
-                child: Text(
-                  titleText,
-                  style: constants.kMediumTextStyle,
+          width: mediaWidth * .8,
+          height: mediaHeight * .1,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(width: 10),
+                Material(
+                  color: Colors.transparent,
+                  child: Text(
+                    titleText,
+                    style: constants.kMediumTextStyle,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

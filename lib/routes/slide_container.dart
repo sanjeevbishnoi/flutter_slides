@@ -36,6 +36,11 @@ class _TitleRouteState extends State<SlideContainer> {
         duration: Duration(seconds: 1), curve: Curves.fastOutSlowIn);
   }
 
+  void regressPageView() {
+    pageController.previousPage(
+        duration: Duration(seconds: 1), curve: Curves.fastOutSlowIn);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +48,14 @@ class _TitleRouteState extends State<SlideContainer> {
         controller: pageController,
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          AnimatedSlide(onClickAdvance: advancePageView),
-          /*PageView(
-            scrollDirection: Axis.vertical,
-            children: <Widget>[*/
-          TextSlide(onClickAdvance: advancePageView),
-          ImageSlide(onClickAdvance: advancePageView),
-          //],
-          // )
+          AnimatedSlide(
+              onClickAdvance: advancePageView,
+              onClickRegress: () => Navigator.pop(context)),
+          TextSlide(
+            onClickAdvance: advancePageView,
+            onClickRegress: regressPageView,
+          ),
+          ImageSlide(onClickRegress: regressPageView),
         ],
       ),
     );

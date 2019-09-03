@@ -27,72 +27,80 @@ class _TitleSlideState extends State<TitleSlide> {
           caption: slidecontent.titleSlide['backgroundImageCaption'],
           link: slidecontent.titleSlide['backgroundImageCaptionLink'],
         ),
-        Container(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.popUntil(
-                  context, ModalRoute.withName(TitleSlide.routeName));
-              Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                      transitionDuration: Duration(milliseconds: 1000),
-                      pageBuilder: (context, __, ___) => SlideContainer()));
-            },
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Hero(
-                    tag: constants.kTitleSlideHeroKey,
-                    child: Material(
-                      color: Colors.transparent,
-                      child: Container(
-                        width: 400,
+        Center(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.popUntil(
+                    context, ModalRoute.withName(TitleSlide.routeName));
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                        transitionDuration: Duration(milliseconds: 1000),
+                        pageBuilder: (context, __, ___) => SlideContainer()));
+              },
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Hero(
+                      tag: constants.kTitleSlideHeroKey,
+                      child: Material(
+                        color: Colors.transparent,
                         child: Text(
                           slidecontent.titleSlide['title'],
                           style: constants.kLargeTextStyle,
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * .05),
-                  Text(
-                    slidecontent.titleSlide['subTitle'],
-                    style: constants.kMediumTextStyle,
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * .05),
-                  Icon(Icons.arrow_forward),
-                ],
+                    SizedBox(height: MediaQuery.of(context).size.height * .05),
+                    slidecontent.titleSlide['subTitle'] != null
+                        ? Text(
+                            slidecontent.titleSlide['subTitle'],
+                            style: constants.kMediumTextStyle,
+                          )
+                        : Container(),
+                    slidecontent.titleSlide['subTitle2'] != null
+                        ? Text(
+                            slidecontent.titleSlide['subTitle2'],
+                            style: constants.kMediumTextStyle,
+                          )
+                        : Container(),
+                    SizedBox(height: MediaQuery.of(context).size.height * .05),
+                    Icon(Icons.arrow_forward),
+                    SizedBox(height: MediaQuery.of(context).size.height * .2),
+                    Container(
+                      width: mediaWidth,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              slidecontent.titleSlide['author'] != null
+                                  ? Text(
+                                      slidecontent.titleSlide['author'],
+                                      style: constants.kSmallTextStyle,
+                                    )
+                                  : Container(),
+                              slidecontent.titleSlide['subAuthor'] != null
+                                  ? Text(
+                                      slidecontent.titleSlide['subAuthor'],
+                                      style: constants.kSmallTextStyle,
+                                    )
+                                  : Container()
+                            ],
+                          ),
+                          SizedBox(
+                            width: mediaWidth * .03,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
-        ),
-        Positioned(
-          top: mediaHeight * .8,
-          child: Container(
-            width: mediaWidth,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        slidecontent.titleSlide['author'],
-                        style: constants.kSmallTextStyle,
-                      ),
-                      Text(
-                        slidecontent.titleSlide['subAuthor'],
-                        style: constants.kSmallTextStyle,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: mediaWidth * .05,
-                ),
-              ],
             ),
           ),
         ),

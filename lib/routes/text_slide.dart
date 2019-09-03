@@ -4,14 +4,18 @@ import 'package:tk.slides/widgets/stack_background.dart';
 import 'package:tk.slides/widgets/color_theme_popup.dart';
 import 'package:tk.slides/widgets/slide_title.dart';
 import 'package:tk.slides/slide_content.dart' as slidecontent;
+import 'package:tk.slides/widgets/home_icon.dart';
+import 'package:tk.slides/widgets/advance_icon.dart';
+import 'package:tk.slides/widgets/regress_icon.dart';
 
 class TextSlide extends StatefulWidget {
   const TextSlide({
     Key key,
-    @required this.onClickAdvance,
+    this.onClickAdvance,
+    this.onClickRegress,
   }) : super(key: key);
 
-  final Function onClickAdvance;
+  final Function onClickAdvance, onClickRegress;
   static const String routeName = 'slide';
 
   @override
@@ -68,16 +72,9 @@ class _TextSlideState extends State<TextSlide>
             caption: slidecontent.animatedSlide['backgroundImageCaption'],
             link: slidecontent.animatedSlide['backgroundImageCaptionLink'],
           ),
-          Positioned(
-            top: mediaHeight * .94,
-            left: mediaWidth * .9,
-            child: GestureDetector(
-              onTap: () {
-                widget.onClickAdvance();
-              },
-              child: Icon(Icons.arrow_forward),
-            ),
-          ),
+          AdvanceIcon(onClickAdvance: widget.onClickAdvance),
+          RegressIcon(onClickRegress: widget.onClickRegress),
+          HomeIcon(),
           ColorThemePopup(),
         ],
       ),

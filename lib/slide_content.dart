@@ -1,6 +1,7 @@
 const titleSlide = {
   'title': 'Title Slide',
-  'subTitle': 'A subtitle for the presentation',
+  'subTitle': 'A subtitle for the presentation.',
+  'subTitle2': 'A second subtitle.',
   'author': 'The Author\'s Name',
   'subAuthor': 'Author Contact Info',
   'backgroundImage':
@@ -10,7 +11,7 @@ const titleSlide = {
 };
 
 const animatedSlide = {
-  'title': 'Animated Slide',
+  'title': 'Animated Slide Title',
   'backgroundImage':
       'https://images.unsplash.com/photo-1558932130-308a12148740?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop',
   'backgroundImageCaption': 'Photo by Meagan Carsience on Unsplash',
