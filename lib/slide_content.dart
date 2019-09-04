@@ -18,6 +18,19 @@ const animatedSlide = {
   'backgroundImageCaptionLink': 'https://unsplash.com/photos/TpG2TBiclik',
 };
 
+const textSlide1 = {
+  'title': 'Text Slide Title',
+  'backgroundImage':
+      'https://images.unsplash.com/photo-1558932130-308a12148740?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop',
+  'backgroundImageCaption': 'Photo by Meagan Carsience on Unsplash',
+  'backgroundImageCaptionLink': 'https://unsplash.com/photos/TpG2TBiclik',
+  'bodyContent': [
+    'Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1',
+    'Bullet 2 Bullet 2 Bullet 2 Bullet 2 Bullet 2 Bullet 2',
+    'Bullet 3 Bullet 3 Bullet 3 Bullet 3 Bullet 3 Bullet 3',
+  ],
+};
+
 /*const animatedSlide = [
   [
     {

@@ -93,7 +93,7 @@ class _TitleSlideState extends State<TitleSlide> {
                             ],
                           ),
                           SizedBox(
-                            width: mediaWidth * .03,
+                            width: mediaWidth * .1,
                           ),
                         ],
                       ),

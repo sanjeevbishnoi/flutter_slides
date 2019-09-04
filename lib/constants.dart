@@ -27,3 +27,5 @@ const kSmallTextStyle = TextStyle(
 );
 
 const kTitleSlideHeroKey = 'titleSlideHero';
+
+const kBullet = '\u25E6';

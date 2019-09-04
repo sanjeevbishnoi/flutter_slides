@@ -30,7 +30,6 @@ class SlideTitle extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                SizedBox(width: 10),
                 Material(
                   color: Colors.transparent,
                   child: Text(

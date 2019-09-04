@@ -2,6 +2,7 @@ import 'package:flutter_web/material.dart';
 import 'package:tk.slides/routes/animated_slide.dart';
 import 'package:tk.slides/routes/text_slide.dart';
 import 'package:tk.slides/routes/image_slide.dart';
+import 'package:tk.slides/slide_content.dart' as slidecontent;
 
 class SlideContainer extends StatefulWidget {
   static const String routeName = 'slide';
@@ -48,12 +49,13 @@ class _TitleRouteState extends State<SlideContainer> {
         controller: pageController,
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          AnimatedSlide(
+          /*AnimatedSlide(
               onClickAdvance: advancePageView,
-              onClickRegress: () => Navigator.pop(context)),
+              onClickRegress: () => Navigator.pop(context)),*/
           TextSlide(
+            slideContent: slidecontent.textSlide1,
             onClickAdvance: advancePageView,
-            onClickRegress: regressPageView,
+            onClickRegress: () => Navigator.pop(context),
           ),
           ImageSlide(onClickRegress: regressPageView),
         ],

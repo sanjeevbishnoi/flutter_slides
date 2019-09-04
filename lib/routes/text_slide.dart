@@ -3,7 +3,7 @@ import 'package:tk.slides/widgets/image_caption.dart';
 import 'package:tk.slides/widgets/stack_background.dart';
 import 'package:tk.slides/widgets/color_theme_popup.dart';
 import 'package:tk.slides/widgets/slide_title.dart';
-import 'package:tk.slides/slide_content.dart' as slidecontent;
+import 'package:tk.slides/constants.dart' as constants;
 import 'package:tk.slides/widgets/home_icon.dart';
 import 'package:tk.slides/widgets/advance_icon.dart';
 import 'package:tk.slides/widgets/regress_icon.dart';
@@ -13,10 +13,12 @@ class TextSlide extends StatefulWidget {
     Key key,
     this.onClickAdvance,
     this.onClickRegress,
+    this.slideContent,
   }) : super(key: key);
 
   final Function onClickAdvance, onClickRegress;
   static const String routeName = 'slide';
+  final slideContent;
 
   @override
   _TextSlideState createState() => _TextSlideState();
@@ -65,12 +67,37 @@ class _TextSlideState extends State<TextSlide>
         children: <Widget>[
           StackBackground(
             opacity: backgroundOpacityAnimation.value,
-            image: slidecontent.animatedSlide['backgroundImage'],
+            image: widget.slideContent['backgroundImage'],
           ),
-          SlideTitle(titleText: 'Text Slide'),
+          SlideTitle(titleText: widget.slideContent['title']),
+          Positioned(
+            left: mediaWidth * .1,
+            top: mediaHeight * .2,
+            child: Container(
+              height: mediaHeight * .65,
+              width: mediaWidth * .8,
+              child: ListView.builder(
+                itemCount: widget.slideContent['bodyContent'].length,
+                itemBuilder: (BuildContext context, int index) {
+                  return FittedBox(
+                    alignment: Alignment.topLeft,
+                    fit: BoxFit.scaleDown,
+                    child: Container(
+                      padding:
+                          EdgeInsetsDirectional.only(bottom: mediaHeight * .05),
+                      child: Text(
+                        '${constants.kBullet} ${widget.slideContent['bodyContent'][index]}',
+                        style: constants.kMediumTextStyle,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
           ImageCaption(
-            caption: slidecontent.animatedSlide['backgroundImageCaption'],
-            link: slidecontent.animatedSlide['backgroundImageCaptionLink'],
+            caption: widget.slideContent['backgroundImageCaption'],
+            link: widget.slideContent['backgroundImageCaptionLink'],
           ),
           AdvanceIcon(onClickAdvance: widget.onClickAdvance),
           RegressIcon(onClickRegress: widget.onClickRegress),
