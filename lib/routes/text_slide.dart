@@ -79,16 +79,37 @@ class _TextSlideState extends State<TextSlide>
               child: ListView.builder(
                 itemCount: widget.slideContent['bodyContent'].length,
                 itemBuilder: (BuildContext context, int index) {
-                  return FittedBox(
-                    alignment: Alignment.topLeft,
-                    fit: BoxFit.scaleDown,
-                    child: Container(
-                      padding:
-                          EdgeInsetsDirectional.only(bottom: mediaHeight * .05),
-                      child: Text(
-                        '${constants.kBullet} ${widget.slideContent['bodyContent'][index]}',
-                        style: constants.kMediumTextStyle,
-                      ),
+                  return Container(
+                    width: mediaWidth * .8,
+                    padding:
+                        EdgeInsetsDirectional.only(bottom: mediaHeight * .03),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              '${constants.kBullet}',
+                              style: constants.kMediumTextStyle,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              width: mediaWidth * .7,
+                              child: Text(
+                                '${widget.slideContent['bodyContent'][index]}',
+                                style: constants.kMediumTextStyle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   );
                 },

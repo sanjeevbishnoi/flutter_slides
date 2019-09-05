@@ -69,7 +69,7 @@ class _TitleSlideState extends State<TitleSlide> {
                         : Container(),
                     SizedBox(height: MediaQuery.of(context).size.height * .05),
                     Icon(Icons.arrow_forward),
-                    SizedBox(height: MediaQuery.of(context).size.height * .2),
+                    SizedBox(height: MediaQuery.of(context).size.height * .1),
                     Container(
                       width: mediaWidth,
                       child: Row(
