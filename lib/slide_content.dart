@@ -25,7 +25,7 @@ const textSlide1 = {
   'backgroundImageCaption': 'Photo by Meagan Carsience on Unsplash',
   'backgroundImageCaptionLink': 'https://unsplash.com/photos/TpG2TBiclik',
   'bodyContent': [
-    'Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1',
+    'Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1 Bullet 1',
     'Bullet 2 Bullet 2 Bullet 2 Bullet 2 Bullet 2',
     'Bullet 3',
   ],
