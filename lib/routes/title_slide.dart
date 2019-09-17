@@ -18,7 +18,6 @@ class _TitleSlideState extends State<TitleSlide> {
   @override
   Widget build(BuildContext context) {
     double mediaWidth = MediaQuery.of(context).size.width;
-    double mediaHeight = MediaQuery.of(context).size.height;
     return Stack(
       children: <Widget>[
         StackBackground(
