@@ -1,7 +1,7 @@
 const titleSlide = {
   'title': 'Title Slide',
   'subTitle': 'A subtitle for the presentation.',
-  'subTitle2': 'A second subtitle.',
+  'subTitle2': 'A second subtitle that\'s longer than the first title.',
   'author': 'The Author\'s Name',
   'subAuthor': 'Author Contact Info',
   'backgroundImage':
